@@ -8,6 +8,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/memes', (req, res) => {
+
     got('https://www.reddit.com/r/memes/random/.json').then(response => {
         let meme = JSON.parse(response.body);
         let title = meme[0].data.children[0].data.title;
@@ -38,6 +39,10 @@ app.get('/memes', (req, res) => {
         res.send(output);
         
     }).catch(console.log);
+});
+
+app.get("*", (req, res) => {
+    res.send("Error! The page you are looking for does not exist.");
 });
 
 app.listen(port, () => {
