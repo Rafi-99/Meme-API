@@ -35,7 +35,7 @@ app.get('/memes', (req, res) => {
         var string = JSON.stringify(memeDataFormat);
         var output = JSON.parse(string);
 
-        res.send(output);
+        res.json(output);
         
     }).catch(console.log);
 });
@@ -68,7 +68,7 @@ app.get('/dankmemes', (req, res) => {
         var string = JSON.stringify(memeDataFormat);
         var output = JSON.parse(string);
 
-        res.send(output);
+        res.json(output);
         
     }).catch(console.log);
 });
