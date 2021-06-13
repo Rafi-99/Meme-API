@@ -12,13 +12,13 @@ Note: My API will work for most subreddits. Obviously it will return an error if
 Banned and NSFW subreddits will not work either since Reddit returns an error code if you try to access them. 
 
 ## Example Endpoints
-* [/memes](https://meme-api-node-js.herokuapp.com/api/memes)
-* [/dankmemes](https://meme-api-node-js.herokuapp.com/api/dankmemes)
-* [/prequelmemes](https://meme-api-node-js.herokuapp.com/api/prequelmemes)
-* [/terriblefacebookmemes](https://meme-api-node-js.herokuapp.com/api/terriblefacebookmemes)
-* [/wholesomememes](https://meme-api-node-js.herokuapp.com/api/wholesomememes)
-* [/deepfriedmemes](https://meme-api-node-js.herokuapp.com/api/deepfriedmemes)
-* [/surrealmemes](https://meme-api-node-js.herokuapp.com/api/surrealmemes)
-* [/funny](https://meme-api-node-js.herokuapp.com/api/funny)
-* [/lastimages](https://meme-api-node-js.herokuapp.com/api/lastimages)
-* [/memeeconomy](https://meme-api-node-js.herokuapp.com/api/memeeconomy)
+* [/api/memes](https://meme-api-node-js.herokuapp.com/api/memes)
+* [/api/dankmemes](https://meme-api-node-js.herokuapp.com/api/dankmemes)
+* [/api/prequelmemes](https://meme-api-node-js.herokuapp.com/api/prequelmemes)
+* [/api/terriblefacebookmemes](https://meme-api-node-js.herokuapp.com/api/terriblefacebookmemes)
+* [/api/wholesomememes](https://meme-api-node-js.herokuapp.com/api/wholesomememes)
+* [/api/deepfriedmemes](https://meme-api-node-js.herokuapp.com/api/deepfriedmemes)
+* [/api/surrealmemes](https://meme-api-node-js.herokuapp.com/api/surrealmemes)
+* [/api/funny](https://meme-api-node-js.herokuapp.com/api/funny)
+* [/api/lastimages](https://meme-api-node-js.herokuapp.com/api/lastimages)
+* [/api/memeeconomy](https://meme-api-node-js.herokuapp.com/api/memeeconomy)
