@@ -1,4 +1,6 @@
 # Meme API
+
+## About
 A simple Node.js Web API I created for fetching memes off [Reddit.](Reddit.com/r/memes) Each GET request to my API returns a new random meme in JSON format.
 
 ## How It Works
