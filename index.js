@@ -7,7 +7,7 @@ const port = process.env.PORT;
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.json({
+    res.status(200).json({
         "status": 200, 
         "message": "Success!"
     });
@@ -20,7 +20,7 @@ app.get('/api/:subreddit', (req, res) => {
         let meme = JSON.parse(response.body);
 
         if(meme[0] === undefined) {
-            res.json({
+            res.status(404).json({
                 "success": false,
                 "message": 'The requested resouce cannot be fetched or does not exist.'
             });
@@ -49,12 +49,12 @@ app.get('/api/:subreddit', (req, res) => {
                 data:memeData
             };
 
-            res.json(memeDataFormat); 
+            res.status(200).json(memeDataFormat); 
         }
     }).catch(error => {
         let errorHandler = new Promise((resolve, reject) => {
             reject(error);
-            throw res.json({
+            throw res.status(404).json({
                 "success": false,
                 "message": 'The requested resouce cannot be fetched or does not exist.'
             });
@@ -64,7 +64,7 @@ app.get('/api/:subreddit', (req, res) => {
 }); 
 
 app.get("*", (req, res) => {
-    res.json({
+    res.status(404).json({
         "status": 404,
         "message": 'Page not found.'
     });
