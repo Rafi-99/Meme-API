@@ -1,6 +1,6 @@
-const cors = require('cors');
-const express = require('express');
-const got = require('got');
+import cors from 'cors';
+import express from 'express';
+import got from 'got';
 const app = express();
 const port = process.env.PORT;
 
@@ -17,7 +17,7 @@ app.get('/api/:subreddit', (req, res) => {
     const subreddit = req.params.subreddit;
     
     got(`https://www.reddit.com/r/${subreddit}/random/.json`).then(response => {
-        let meme = JSON.parse(response.body);
+        const meme = JSON.parse(response.body);
 
         if(meme[0] === undefined) {
             res.status(404).json({
@@ -27,15 +27,15 @@ app.get('/api/:subreddit', (req, res) => {
         }
         
         else {
-            let title = meme[0].data.children[0].data.title;
-            let linkIdentifier = meme[0].data.children[0].data.permalink;
-            let url = 'https://www.reddit.com' + linkIdentifier;
-            let image = meme[0].data.children[0].data.url;
-            let upvotes = meme[0].data.children[0].data.ups;
-            let downvotes = meme[0].data.children[0].data.downs;
-            let comments = meme[0].data.children[0].data.num_comments;
+            const title = meme[0].data.children[0].data.title;
+            const linkIdentifier = meme[0].data.children[0].data.permalink;
+            const url = 'https://www.reddit.com' + linkIdentifier;
+            const image = meme[0].data.children[0].data.url;
+            const upvotes = meme[0].data.children[0].data.ups;
+            const downvotes = meme[0].data.children[0].data.downs;
+            const comments = meme[0].data.children[0].data.num_comments;
 
-            let memeData = {
+            const memeData = {
                 title:title, 
                 url:url,
                 image:image,
@@ -44,7 +44,7 @@ app.get('/api/:subreddit', (req, res) => {
                 comments:comments
             };
 
-            let memeDataFormat = {
+            const memeDataFormat = {
                 success:true, 
                 data:memeData
             };
@@ -52,7 +52,7 @@ app.get('/api/:subreddit', (req, res) => {
             res.status(200).json(memeDataFormat); 
         }
     }).catch(error => {
-        let errorHandler = new Promise((resolve, reject) => {
+        const errorHandler = new Promise((resolve, reject) => {
             reject(error);
             throw res.status(404).json({
                 "success": false,
