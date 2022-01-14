@@ -11,12 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "got": "^11.8.2"
+    "cors": "latest",
+    "express": "latest",
+    "got": "latest"
   },
   "engines": {
-    "node": "^16.6.0",
-    "npm": "^7.20.3"
+    "node": "^17.3.1",
+    "npm": "^8.3.1"
   }
 }
