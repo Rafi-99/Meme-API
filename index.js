@@ -9,8 +9,8 @@ app.use(cors());
 
 app.get('/', (req, res) => {
     res.status(200).json({
-        "status": 200,
-        "message": "Success!"
+        status: 200,
+        message: 'Success!'
     });
 });
 
@@ -22,32 +22,26 @@ app.get('/api/:subreddit', (req, res) => {
 
         if(meme[0] === undefined) {
             res.status(404).json({
-                "success": false,
-                "message": 'The requested resouce cannot be fetched or does not exist.'
+                success: false,
+                message: 'The requested resouce cannot be fetched or does not exist.'
             });
         }
 
         else {
-            const title = meme[0].data.children[0].data.title;
-            const linkIdentifier = meme[0].data.children[0].data.permalink;
-            const url = 'https://www.reddit.com' + linkIdentifier;
-            const image = meme[0].data.children[0].data.url;
-            const upvotes = meme[0].data.children[0].data.ups;
-            const downvotes = meme[0].data.children[0].data.downs;
-            const comments = meme[0].data.children[0].data.num_comments;
+            const { title, permalink, url: image, ups: upvotes, downs: downvotes, num_comments: comments } = meme[0].data.children[0].data;
 
             const memeData = {
-                title:title,
-                url:url,
-                image:image,
-                upvotes:upvotes,
-                downvotes:downvotes,
-                comments:comments
+                title: title,
+                url: `https://www.reddit.com${permalink}`,
+                image: image,
+                upvotes: upvotes,
+                downvotes: downvotes,
+                comments: comments
             };
 
             const memeDataFormat = {
-                success:true,
-                data:memeData
+                success: true,
+                data: memeData
             };
 
             res.status(200).json(memeDataFormat);
@@ -56,8 +50,8 @@ app.get('/api/:subreddit', (req, res) => {
         const errorHandler = new Promise((resolve, reject) => {
             reject(error);
             throw res.status(404).json({
-                "success": false,
-                "message": 'The requested resouce cannot be fetched or does not exist.'
+                success: false,
+                message: 'The requested resouce cannot be fetched or does not exist.'
             });
         });
         errorHandler.catch(error => {/* Error handled. */});
@@ -66,8 +60,8 @@ app.get('/api/:subreddit', (req, res) => {
 
 app.get("*", (req, res) => {
     res.status(404).json({
-        "status": 404,
-        "message": 'Page not found.'
+        status: 404,
+        message: 'Page not found.'
     });
 });
 

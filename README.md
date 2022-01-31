@@ -8,10 +8,10 @@ A simple Node.js Web API I created for fetching memes off [Reddit.](Reddit.com/r
 
 2. Relevant information is retrieved from the URL such as the meme's title, image URL, upvotes, downvotes, and comments.
 
-3. My API then uses that relevant information to construct a JSON object that is returned to the user in an easy-to-read format.
+3. My API then takes that information to construct a JSON object that gets returned to the user.
 
 Note: My API will work for most subreddits. Obviously it will return an error if you try to access a subreddit that doesn't exist.
-Banned and NSFW subreddits will not work either since Reddit returns an error code if you try to access them. 
+Most banned and NSFW subreddits will not work either since Reddit returns an error code if you try to access them.
 
 ## Example Endpoints
 * [/api/memes](https://meme-api-node-js.herokuapp.com/api/memes)
